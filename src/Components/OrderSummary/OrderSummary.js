@@ -1,10 +1,10 @@
 import React from 'react';
 import './OrderSummary.css';
 
-const OrderSummary = () => {
+const OrderSummary = ({cart}) => {
     return (
         <div>
-            this is order summary
+            <h1>selected item : {cart.length}</h1>
         </div>
     );
 };
