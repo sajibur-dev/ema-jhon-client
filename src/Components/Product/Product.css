@@ -64,8 +64,14 @@
   border-radius: 0 0 10px 10px;
   position: absolute;
   bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.btn-bg {
+  margin-right: 7px;
+}
 .card-footer:hover {
   background-color: #af741b;
 }
