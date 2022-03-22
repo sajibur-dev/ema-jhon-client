@@ -6,15 +6,15 @@ import './Shop.css';
 
 const Shop = () => {
     const [products,setProducts] = useState([]);
-    const [cart,setCart] = useState([]);
+    const [carts,setCart] = useState([]);
     useEffect(() => {
         fetch('products.json')
         .then((res) => res.json())
         .then((data) => setProducts(data))
     },[])
     const handleAddToCart = (product) => {
-        console.log(product);
-        const newCart = [...cart,product];
+        const isExist =  carts.find((cart) => cart.id === product.id);
+        const newCart = isExist ?  [...carts] : [...carts,product];
         setCart(newCart);
     }
     return (
@@ -28,7 +28,7 @@ const Shop = () => {
                     />)
                 }
             </div>
-            <OrderSummary cart={cart}/>
+            <OrderSummary cart={carts}/>
         </div>
     );
 };
