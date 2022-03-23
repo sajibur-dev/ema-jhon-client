@@ -7,16 +7,19 @@ import './Shop.css';
 
 const Shop = () => {
     const [products,setProducts] = useState([]);
-    const [carts,setCart] = useState([]);
+    const [cart,setCart] = useState([]);
     useEffect(() => {
         fetch('products.json')
         .then((res) => res.json())
         .then((data) => setProducts(data))
     },[]);
     
+
+    
     useEffect(() => {
         const storedCard = getStoredCart();
-        const saveProducts = [];
+        console.log(storedCard)
+        const saveProducts = []; 
         for(const id in storedCard){
             const cartProduct = products.find((product) => product.id === id);
             if(cartProduct){
@@ -29,12 +32,14 @@ const Shop = () => {
         setCart(saveProducts)
     },[products]);
 
+
+
     const handleAddToCart = (product) => {
-        const isExist =  carts.find((cart) => cart.id === product.id);
-        const newCart = isExist ?  [...carts] : [...carts,product];
+        product.quantity = 1
+        const isExist =  cart.find((cartProduct) => cartProduct.id === product.id);
+        const newCart = isExist ?  [...cart] : [...cart,product];
         setCart(newCart);
-        const quantity = product.quantity + 1;
-        !isExist && addToDb(product.id,quantity)
+        !isExist && addToDb(product.id,product.quantity)
     }
     return (
         <div className='shop-container'>
@@ -47,7 +52,7 @@ const Shop = () => {
                     />)
                 }
             </div>
-            <OrderSummary cart={carts}/>
+            <OrderSummary cart={cart}/>
         </div>
     );
 };
