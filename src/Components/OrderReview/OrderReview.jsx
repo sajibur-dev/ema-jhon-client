@@ -1,31 +1,46 @@
-import React from 'react';
-import useCart from '../../Hooks/useCart';
-import useProducts from '../../Hooks/useProducts';
-import { addToDb } from '../../utilities/fakedb';
-import OrderProduct from '../OrderProduct/OrderProduct';
-import OrderSummary from '../OrderSummary/OrderSummary';
-import './OrderReview.css';
+import React from "react";
+import useCart from "../../Hooks/useCart";
+import useProducts from "../../Hooks/useProducts";
+import { addToDb } from "../../utilities/fakedb";
+import OrderSummary from "../OrderSummary/OrderSummary";
+import OrderProduct from "../ReviewItem/ReviewItem";
+import "./OrderReview.css";
 
 const OrderReview = () => {
-    const [products,setProducts] = useProducts();
-    const [cart,setCart] = useCart(products);
-    console.log(cart);
+  const [products, setProducts] = useProducts();
+  const [cart, setCart] = useCart(products);
+  console.log(cart);
 
-    const handleProductQuantity = (id) => {
-        const newSelectedProduct = cart.find((product) => product.id === id);
-        newSelectedProduct.quantity += 1;
-        const newCart = newSelectedProduct ? [...cart] : [...cart,newSelectedProduct];
-        setCart(newCart)
-        addToDb(id,newSelectedProduct.quantity)
-    }
-    return (
-        <div className='shop-container'>
-            {
-                cart.map((product) => <OrderProduct key={product.id} product={product} handleProductQuantity={handleProductQuantity}/>)
-            }
-            <OrderSummary cart={cart}/>
-        </div>
-    );
+  const handleProductQuantity = (id) => {
+    const newSelectedProduct = cart.find((product) => product.id === id);
+    newSelectedProduct.quantity += 1;
+    const newCart = newSelectedProduct
+      ? [...cart]
+      : [...cart, newSelectedProduct];
+    setCart(newCart);
+    addToDb(id, newSelectedProduct.quantity);
+  };
+
+  const handleRemoveProduct = (removedProduct) => {
+    console.log(removedProduct);
+    const rest = cart.filter((product) => product.id !== removedProduct.id);
+    setCart(rest);
+  };
+  return (
+    <div className="shop-container">
+      <div className="order-review-container">
+        {cart.map((product) => (
+          <OrderProduct
+            key={product.id}
+            product={product}
+            handleProductQuantity={handleProductQuantity}
+            handleRemoveProduct={handleRemoveProduct}
+          />
+        ))}
+      </div>
+      <OrderSummary cart={cart} />
+    </div>
+  );
 };
 
 export default OrderReview;
