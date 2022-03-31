@@ -20,8 +20,12 @@ const ReviewItem = ({
           <p className="item-name" title={name}>
             {name.length > 20 ? `${name.slice(0, 20)}...` : name}
           </p>
-          <p className="item-price">Price : ${price}</p>
-          <p className="item-shipping">shipping : ${shipping}</p>
+          <p className="item-price">Price :
+            <span style={{color:'#FF9900'}}>${price}</span> 
+          </p>
+          <p className="item-shipping">shipping : 
+            <span style={{color:'#FF9900'}}>${shipping}</span>
+          </p>
           <p className="item-quantity">quantity : {quantity}</p>
         </div>
         <div className="review-items-delete">
