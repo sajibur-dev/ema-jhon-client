@@ -1,7 +1,7 @@
 import React from 'react';
 import './OrderSummary.css';
 
-const OrderSummary = ({cart}) => {
+const OrderSummary = ({cart,children}) => {
     console.log(cart)
     // const totalPrice = cart.reduce((prevPrice,currentPrice) => prevPrice + (currentPrice.price),0);
 
@@ -24,6 +24,9 @@ const OrderSummary = ({cart}) => {
             <p>Total Shipping Chrage :${shipping}</p>
             <p>Tex : {tex} </p>
             <h4>Grand Total : ${grandTotal} </h4>
+            {
+                children
+            }
         </div>
     );
 };
