@@ -3,8 +3,10 @@ import './App.css';
 import About from './Components/About/About';
 import Header from './Components/Header/Header';
 import Inventory from './Components/Inventory/Inventory';
+import Login from './Components/Login/Login';
 import OrderReview from './Components/OrderReview/OrderReview';
 import Shop from './Components/Shop/Shop';
+import SignUp from './Components/SignUp/SignUp';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path='/review' element={<OrderReview/>}/>
         <Route path='/inventory' element={<Inventory/>}/>
         <Route path='/about' element={<About/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/signup' element={<SignUp/>}/>
       </Routes>
     </div>
   );
