@@ -18,3 +18,9 @@
 .header a:hover {
   color: orange;
 }
+
+.logout-icon {
+  font-size: 30px;
+  background-color: #1c2b35;
+  color: white;
+}
