@@ -8,6 +8,7 @@ import './Shop.css';
 
 
 const Shop = () => {
+    // eslint-disable-next-line no-unused-vars
     const [products,setProducts] = useProducts();
     
     const [cart,setCart] = useState([]);
@@ -25,8 +26,6 @@ const Shop = () => {
         setCart(saveProducts)
     },[products]);
 
-
-
     const handleAddToCart = (product) => {
         product.quantity = 1;
         const isExist =  cart.find((cartProduct) => cartProduct.id === product.id);
@@ -34,6 +33,8 @@ const Shop = () => {
         setCart(newCart);
         !isExist && addToDb(product.id,product.quantity);
     }
+
+    
     return (
         <div className='shop-container'>
             <div className="products-container">

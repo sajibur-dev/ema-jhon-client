@@ -1,9 +1,12 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 // import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    // eslint-disable-next-line no-unused-vars
+    
     const [email,setEmail] = useState('');
     const [name,setName] = useState('');
     const [address,setAddress] = useState('');
@@ -17,6 +20,7 @@ const Login = () => {
         e.preventDefault();
     }
 
+    
 
     return (
         <div className='form-container'>
