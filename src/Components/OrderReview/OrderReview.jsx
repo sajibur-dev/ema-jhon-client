@@ -41,8 +41,8 @@ const OrderReview = () => {
         ))}
       </div>
       <OrderSummary cart={cart}>
-        <Link to='/inventory'>
-          <button>chekout process</button>
+        <Link to='/shipping'>
+          <button>shipping process</button>
         </Link>
       </OrderSummary>
     </div>

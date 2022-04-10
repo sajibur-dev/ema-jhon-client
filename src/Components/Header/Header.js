@@ -10,6 +10,7 @@ import "./Header.css";
 
 const Header = () => {
   const [user] = useAuthState(auth);
+  console.log(user)
   return (
     <nav className="header">
       <Link to="/">
@@ -20,6 +21,7 @@ const Header = () => {
         <Link to="/review">Order</Link>
         <Link to="/inventory">Inventory</Link>
         <Link to="/about">about</Link>
+        <span style={{color:'white'}}>{user?.uid && user.email}</span>
         {user ? (
           <button style={{border:'none',backgroundColor:'#1c2b35'}} onClick={() => signOut(auth)}><FontAwesomeIcon className='logout-icon' icon={faArrowRightFromBracket} /></button>
         ) : (
