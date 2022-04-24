@@ -8,12 +8,13 @@ import OrderProduct from "../ReviewItem/ReviewItem";
 import "./OrderReview.css";
 
 const OrderReview = () => {
+  // eslint-disable-next-line no-unused-vars
   const [products, setProducts] = useProducts();
   const [cart, setCart] = useCart(products);
   console.log(cart);
 
   const handleProductQuantity = (id) => {
-    const newSelectedProduct = cart.find((product) => product.id === id);
+    const newSelectedProduct = cart.find((product) => product._id === id);
     newSelectedProduct.quantity += 1;
     const newCart = newSelectedProduct
       ? [...cart]
@@ -24,16 +25,16 @@ const OrderReview = () => {
 
   const handleRemoveProduct = (removedProduct) => {
     console.log(removedProduct);
-    const rest = cart.filter((product) => product.id !== removedProduct.id);
+    const rest = cart.filter((product) => product._id !== removedProduct._id);
     setCart(rest);
-    removeFromDb(removedProduct.id)
+    removeFromDb(removedProduct._id)
   };
   return (
     <div className="shop-container">
       <div className="order-review-container">
         {cart.map((product) => (
           <OrderProduct
-            key={product.id}
+            key={product._id}
             product={product}
             handleProductQuantity={handleProductQuantity}
             handleRemoveProduct={handleRemoveProduct}

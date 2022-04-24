@@ -9,3 +9,22 @@
   gap: 45px;
   padding: 70px 30px 70px 70px;
 }
+
+.paginationButton {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.paginationButton button {
+  margin-right: 10px;
+  font-size: 18px;
+  border: 1px solid orange;
+  padding: 10px 20px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.paginationButton .selected {
+  background-color: orange;
+  color: white;
+}
