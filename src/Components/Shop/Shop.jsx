@@ -10,13 +10,10 @@ const Shop = () => {
   // eslint-disable-next-line no-unused-vars
 
   const [products,setProducts] = useState([]);
-
   const [cart, setCart] = useCart();
 
   const [pageCount, setPageCount] = useState(0);
-  
   const [currentPage,setCurrentPage] = useState(0);
-
   const [size,setSize] = useState(10);
 
 
@@ -35,20 +32,6 @@ const Shop = () => {
         setPageCount(pages);
       });
   }, [size]);
-
-//   useEffect(() => {
-//     const storedCard = getStoredCart();
-//     const saveProducts = [];
-//     for (const id in storedCard) {
-//       const cartProduct = products.find((product) => product._id === id);
-//       if (cartProduct) {
-//         const quantity = storedCard[id];
-//         cartProduct.quantity = quantity;
-//         saveProducts.push(cartProduct);
-//       }
-//     }
-//     setCart(saveProducts);
-//   }, [products]);
 
   
 
