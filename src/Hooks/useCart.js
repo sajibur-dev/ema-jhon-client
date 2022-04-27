@@ -9,7 +9,7 @@ const useCart = () => {
 
     const keys = Object.keys(storedCart);
 
-    fetch("http://localhost:5000/productKeys", {
+    fetch("https://fathomless-wave-70125.herokuapp.com/productKeys", {
       method: "POST",
       headers: {
         "content-type": "application/json",

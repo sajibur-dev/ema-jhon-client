@@ -18,13 +18,13 @@ const Shop = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/product?page=${currentPage}&size=${size}`)
+        fetch(`https://fathomless-wave-70125.herokuapp.com/product?page=${currentPage}&size=${size}`)
         .then((res) => res.json())
         .then((data) => setProducts(data))
     },[currentPage,size]);
     
   useEffect(() => {
-    fetch("http://localhost:5000/productCount")
+    fetch("https://fathomless-wave-70125.herokuapp.com/productCount")
       .then((res) => res.json())
       .then((data) => {
         const count = data.count;
