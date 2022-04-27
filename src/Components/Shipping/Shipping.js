@@ -29,7 +29,7 @@ const Login = () => {
                 <form onSubmit={handleForm}>
                     <div className="input-group">
                         <label htmlFor="name">Your name</label>
-                        <input  onBlur={(e) => setName(e.target.value)} type="text" name="name" id="name" placeholder='enter you name' />
+                        <input  onBlur={(e) => setName(e.target.value)} type="text" name="name" id="name" value={user?.displayName} placeholder='enter you name' />
                     </div>
                     <div className="input-group">
                         <label htmlFor="email">Your email</label>
